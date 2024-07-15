@@ -1,0 +1,41 @@
+﻿@model FIZZ_BUZZ.Models.FizzBuzzModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>FizzBuzz Application</title>
+</head>
+<body>
+    <h1>FizzBuzz Application</h1>
+
+    <form asp-action="Process" method="post">
+        <div>
+            <label>Enter comma-separated values:</label>
+            <input type="text" name="InputValuesString" autocomplete="off"/>
+        </div>
+        <div>
+            <button type="submit">Process</button>
+        </div>
+    </form>
+
+    @if (Model.Results != null && Model.Results.Count > 0)
+    {
+        <h2>Results</h2>
+        <ul>
+            @foreach (var result in Model.Results)
+            {
+                <li>@result</li>
+            }
+        </ul>
+
+        <h2>Divisions Performed</h2>
+        <ul>
+            @foreach (var division in Model.DivisionsPerformed!)
+            {
+                <li>@division</li>
+            }
+        </ul>
+    }
+</body>
+</html>
